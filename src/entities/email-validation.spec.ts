@@ -15,4 +15,11 @@ describe('Email validation', () => {
     const email: string = 'any@gmail.com';
     expect(Email.validate(email)).toBeTruthy();
   });
+
+  test('should not accept null strings', () => {
+    const email = 'l'.repeat(65) + '@mail.com'
+    expect(Email.validate(email)).toBeFalsy();
+  });
+
+
 });
