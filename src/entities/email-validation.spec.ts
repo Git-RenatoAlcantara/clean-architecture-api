@@ -52,4 +52,19 @@ describe('Email validation', () => {
     expect(Email.validate(email)).toBeFalsy();
   });
 
+  test('should not accept local with a part with two dots', () => {
+    const email = 'any..email@mail.com'
+    expect(Email.validate(email)).toBeFalsy();
+  });
+
+  test('should not accept local with a part with ending dots', () => {
+    const email = 'any.@mail.com'
+    expect(Email.validate(email)).toBeFalsy();
+  });
+
+  test('should not accept email without an at-sign', () => {
+    const email = 'anymail.com'
+    expect(Email.validate(email)).toBeFalsy();
+  });
+
 });
