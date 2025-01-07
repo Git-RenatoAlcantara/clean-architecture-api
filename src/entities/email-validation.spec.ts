@@ -47,4 +47,9 @@ describe('Email validation', () => {
     expect(Email.validate(email)).toBeFalsy();
   });
 
+  test('should not accept local with a part with invalid char', () => {
+    const email = 'any email@mail.com'
+    expect(Email.validate(email)).toBeFalsy();
+  });
+
 });
